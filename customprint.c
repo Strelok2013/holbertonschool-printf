@@ -2,7 +2,6 @@
 #include <stdarg.h>
 #include <unistd.h>
 
-
 /**
  * _printf - multiple format print out
  * 
@@ -18,6 +17,7 @@ int _printf(const char *format, ...)
 	int i = 0;
 	char c;
 	char *str;
+	int num = 0;
 
 	va_list args;
     va_start(args, format);
@@ -40,6 +40,13 @@ int _printf(const char *format, ...)
 	    {
 		    c = va_arg(args, int);
 		    printf("%c", c);
+		    i++;
+	    }
+	    else if(format[i] == '%' && (format[i + 1] == 'i' ||
+			                 format[i + 1] == 'd'))
+	    {
+		    num = va_arg(args, int);
+		    print_integer(args);
 		    i++;
 	    }
 	    else
