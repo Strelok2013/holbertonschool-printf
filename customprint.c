@@ -14,9 +14,13 @@
 
 
 int _printf(const char *format, ...) {
-    va_list args;
+
+    	int i = 0;
+	char c;
+	char *str;
+
+	va_list args;
     va_start(args, format);
-    int i = 0;
 
 
     while (format[i] != '\0') {
@@ -24,11 +28,11 @@ int _printf(const char *format, ...) {
             putchar('%');
             i++;
         } else if (format[i] == '%' && format[i + 1] == 's') {
-            char *str = va_arg(args, char *);
+            str = va_arg(args, char *);
             printf("%s", str);
             i++;
         } else if (format[i] == '%' && format[i + 1] == 'c') {
-            char c = va_arg(args, int);
+            c = va_arg(args, int);
             printf("%c", c);
             i++;
         } else {
