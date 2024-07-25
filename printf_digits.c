@@ -51,7 +51,7 @@ int *get_digits(int num)
  * Return: The number of bytes written.
  */
 
-unsigned int print_integer(va_list arg, int count)
+unsigned int print_integer(va_list arg)
 {
 	int number = va_arg(arg, int), i = 0;
 	char c = 0;
