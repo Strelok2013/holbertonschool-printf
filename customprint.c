@@ -44,7 +44,6 @@ int _printf(const char *format, ...)
 	    else if(format[i] == '%' && (format[i + 1] == 'i' ||
 			                 format[i + 1] == 'd'))
 	    {
-		    num = va_arg(args, int);
 		    print_integer(args);
 		    i++;
 	    }
