@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <unistd.h>
+#include "main.h"
 
 /**
  * _printf - multiple format print out
@@ -9,6 +10,7 @@
  * 
  * Return: int on sucess
  */
+
 
 
 
