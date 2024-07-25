@@ -12,5 +12,5 @@
 
 int _printf(const char *format, ...);
 
-unsigned int print_integer(va_last arg);
+unsigned int print_integer(va_list arg);
 #endif
