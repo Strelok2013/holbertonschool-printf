@@ -30,7 +30,10 @@ int *get_digits(int num)
 	}
 	p = malloc(count * sizeof(int));
 	if(!p)
+	{
+		free(p);
 		exit(1);
+	}
 	number = num;
 	if(num < 0)
 		number *= -1;
@@ -69,6 +72,6 @@ unsigned int print_integer(va_list arg)
 		bytes += write(1, &c, 1);
 		i++;
 	}
-
+	free(digits);
 	return (bytes);
 }
