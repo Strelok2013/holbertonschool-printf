@@ -3,18 +3,27 @@
 #include <unistd.h>
 #include "main.h"
 
-
-int print_integer(va_list args);
+/**
+ * _printf - multiple format print out
+ *
+ * @format: format selector
+ *
+ * Return: int on success
+ */
 
 int _printf(const char *format, ...)
 {
     int i = 0, count = 0;
     char c;
     char *str;
-    va_list args;    
+    va_list args;
 
     if (format == NULL)
         return (-1);
+
+
+    if (format[0] == '%' && format[1] == '\0')
+        return (0);
 
 
     va_start(args, format);
@@ -24,12 +33,7 @@ int _printf(const char *format, ...)
         if (format[i] == '%')
         {
             if (format[i + 1] == '\0')
-            {
-
-                write(1, "%", 1);
-                count++;
                 break;
-            }
             else if (format[i + 1] == '%')
             {
                 write(1, "%", 1);
@@ -63,8 +67,7 @@ int _printf(const char *format, ...)
             }
             else
             {
-
-                write(1, "%", 1);
+                write(1, &format[i], 1);
                 count++;
             }
         }
