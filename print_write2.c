@@ -18,11 +18,11 @@ int _printf(const char *format, ...)
     int i = 0, count = 0;
     char c;
     char *str;
+    va_list args;
 
     if (format == NULL)
         return (-1);
 
-    va_list args;
     va_start(args, format);
 
     while (format[i] != '\0')
