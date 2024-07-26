@@ -11,4 +11,6 @@
 #include <stdarg.h>
 
 int _printf(const char *format, ...);
+
+unsigned int print_integer(va_list arg);
 #endif
