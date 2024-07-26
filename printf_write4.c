@@ -3,6 +3,8 @@
 #include <unistd.h>
 #include "main.h"
 
+int print_integer(va_list args);
+
 /**
  * _printf - multiple format print out
  *
@@ -11,20 +13,18 @@
  * Return: int on success
  */
 
-int print_integer(va_list args);
-
 int _printf(const char *format, ...)
 {
 	int i = 0, count = 0;
 	char c;
 	char *str;
 	va_list args;
-	
+
 	if (format == NULL)
 		return (-1);
-	
+
 	va_start(args, format);
-	
+
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
@@ -77,7 +77,7 @@ int _printf(const char *format, ...)
 		i++;
 	}
 	va_end(args);
-	return count;
+	return (count);
 }
 
 /**
@@ -93,11 +93,11 @@ int print_integer(va_list args)
 	int num = va_arg(args, int);
 	char buffer[12];
 	int i = 0, j, temp;
-	
+
 	if (num == 0)
 	{
 		write(1, "0", 1);
-		return 1;
+		return (1);
 	}
 	if (num < 0)
 	{
@@ -105,7 +105,6 @@ int print_integer(va_list args)
 		num = -num;
 		i++;
 	}
-	
 	temp = num;
 	while (temp > 0)
 	{
@@ -116,5 +115,5 @@ int print_integer(va_list args)
 	{
 		write(1, &buffer[j], 1);
 	}
-	return i;
+	return (i);
 }
