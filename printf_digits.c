@@ -1,5 +1,13 @@
 #include "main.h"
 
+/**
+ * reverse_elem - reverse number
+ *@p: pointer
+ *@size: block size of number
+ *
+ * Return: none
+ */
+
 void reverse_elem(int *p, unsigned int size)
 {
 	unsigned int i = 0;
@@ -13,6 +21,13 @@ void reverse_elem(int *p, unsigned int size)
 		i++;
 	}
 }
+
+/**
+ * get_digits - read the digits
+ *@num: number to be read
+ *
+ * Return: integer value
+ */
 
 int *get_digits(int num)
 {
