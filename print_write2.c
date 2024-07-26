@@ -3,7 +3,6 @@
 #include <unistd.h>
 #include "main.h"
 
-// Function prototype for print_integer
 int print_integer(va_list args);
 
 /**
