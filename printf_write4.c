@@ -11,6 +11,8 @@
  * Return: int on success
  */
 
+int print_integer(va_list args);
+
 int _printf(const char *format, ...)
 {
     int i = 0, count = 0;
