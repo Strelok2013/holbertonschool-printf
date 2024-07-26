@@ -20,7 +20,7 @@ int *get_digits(int num)
 	int number = num, count = 0;
 	unsigned int size = 0;
 
-	if(num < 0)
+	if (num < 0)
 		number *= -1;
 	while (number)
 	{
@@ -29,13 +29,13 @@ int *get_digits(int num)
 		size++;
 	}
 	p = malloc(count * sizeof(int));
-	if(!p)
+	if (!p)
 	{
 		free(p);
 		exit(1);
 	}
 	number = num;
-	if(num < 0)
+	if (num < 0)
 		number *= -1;
 	while (number)
 	{
