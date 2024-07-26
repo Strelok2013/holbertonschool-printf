@@ -1,0 +1,15 @@
+Custom printf manual page
+Name
+_printf
+Library
+Standard C library
+Synopsis
+int _printf (const char *format,... )
+Description
+The function of the _printf()  is to produce character and write it to the output stream stdout.
+
+The format string is a character of alphanumeric characters or symbols which are copied to the output stream unchanged unless met by a special character that helps in conversion specification that fetches subsequent arguments to be displayed on the stdout.
+The syntax of the conversion specification is:
+_printf(“%[$]”)
+Where the flag i.e. $ can assume the values as follows:
+
