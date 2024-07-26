@@ -24,25 +24,25 @@ int _printf(const char *format, ...)
         return (-1);
 
 
-    if (format[0] == '%' && format[1] == '\0')
-        return (0);
-
-
     va_start(args, format);
 
     while (format[i] != '\0')
     {
         if (format[i] == '%')
         {
-            if (format[i + 1] == '\0')
-                break;
-            else if (format[i + 1] == '%')
+            i++;
+            if (format[i] == '\0')
+            {
+
+                va_end(args);
+                return (-1);
+            }
+            else if (format[i] == '%')
             {
                 write(1, "%", 1);
                 count++;
-                i++;
             }
-            else if (format[i + 1] == 's')
+            else if (format[i] == 's')
             {
                 str = va_arg(args, char *);
                 if (str == NULL)
@@ -53,24 +53,23 @@ int _printf(const char *format, ...)
                     str++;
                     count++;
                 }
-                i++;
             }
-            else if (format[i + 1] == 'c')
+            else if (format[i] == 'c')
             {
                 c = va_arg(args, int);
                 write(1, &c, 1);
                 count++;
-                i++;
             }
-            else if (format[i + 1] == 'i' || format[i + 1] == 'd')
+            else if (format[i] == 'i' || format[i] == 'd')
             {
                 count += print_integer(args);
-                i++;
             }
             else
             {
+
+                write(1, "%", 1);
                 write(1, &format[i], 1);
-                count++;
+                count += 2;
             }
         }
         else
@@ -92,6 +91,7 @@ int _printf(const char *format, ...)
  *
  * Return: number of characters printed
  */
+
 int print_integer(va_list args)
 {
     int num = va_arg(args, int);
