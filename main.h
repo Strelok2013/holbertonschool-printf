@@ -7,7 +7,7 @@
 #include <time.h>
 #include <sys/time.h>
 #include <sys/types.h>
-
+#include <unistd.h>
 #include <stdarg.h>
 
 int _printf(const char *format, ...);
