@@ -59,7 +59,6 @@ int _printf(const char *format, ...)
         }
         else if (format[i] == '%')
         {
-            // Handle single '%' without a valid specifier
             write(1, "%", 1);
             count++;
         }
@@ -85,7 +84,7 @@ int _printf(const char *format, ...)
 int print_integer(va_list args)
 {
     int num = va_arg(args, int);
-    char buffer[12]; // Enough to hold INT_MIN
+    char buffer[12];
     int i = 0, j, temp;
 
     if (num == 0)
