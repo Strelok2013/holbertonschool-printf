@@ -1,15 +1,32 @@
 Custom printf manual page
-Name
+NAME
 _printf
-Library
-Standard C library
-Synopsis
-int _printf (const char *format,... )
-Description
-The function of the _printf()  is to produce character and write it to the output stream stdout.
 
+LIBRARY
+Standard C library
+
+SYNOPSIS
+int _printf (const char *format, …)
+
+DESCRIPTION
+The function of the _printf()  is to produce character and write it to the output stream stdout. It is a custom implementation of the standard C function and supports format specifiers like %s, %c, %d, %i and %%.
 The format string is a character of alphanumeric characters or symbols which are copied to the output stream unchanged unless met by a special character that helps in conversion specification that fetches subsequent arguments to be displayed on the stdout.
-The syntax of the conversion specification is:
-_printf(“%[$]”)
-Where the flag i.e. $ can assume the values as follows:
+Conversion specifiers are characters that define the type of conversion that is taking place. Using the custom _printf() function, we can use the following custom specifiers:
+•	‘%%’: Prints the literal ‘%’ character.
+•	%s: Prints a string by writing each character to the stdout. If the string is null, the ‘null’ string is produced.
+•	%c: Extracts a single character from the argument list and writes it to the standard output.
+•	%d: Prints a decimal integer which can take negative values
+•	%i: Prints an numbers in the form of an integer
+In the case where the ‘%’ encounters an unknown format specifier, the implementation will assume basic error handling and ‘NULL’ format strings.
+
+EXAMPLES
+1.	_printf("String: %s\n", "Hello, world!");
+OUTPUT: Hello World!
+2.	_printf("%c\n", 'A');
+OUTPUT: A
+3.	_printf("%d\n", 12345);
+OUTPUT: 12345
+4.	_printf("%d%%\n", 12345);
+OUTPUT: 12345%
+
 
