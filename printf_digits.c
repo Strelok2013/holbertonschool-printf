@@ -71,7 +71,6 @@ int *get_digits(int num)
 	while (number)
 	{
 		p[count] = number % 10;
-		printf("p[%d]: %d\n", count, p[count]);
 		number /= 10;
 		count++;
 	}
