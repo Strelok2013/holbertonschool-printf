@@ -93,6 +93,13 @@ unsigned int print_integer(va_list arg)
 	int *digits = get_digits(number);
 	unsigned int size = get_number_of_digits(number), i = 0;
 
+	if (number == 0)
+	{
+		c = 0 + '0';
+		bytes += write(1, &c, 1);
+		free(digits);
+		return (bytes);
+	}
 	if (number < 0)
 	{
 		c = 45;
