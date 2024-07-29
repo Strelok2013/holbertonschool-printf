@@ -1,5 +1,20 @@
 #include "main.h"
 
+unsigned int get_number_of_digits(int num)
+{
+	int number = num;
+	unsigned int count = 0;
+
+	if(number < 0)
+		number *= -1;
+	while (number)
+	{
+		number /= 10;
+		count++;
+	}
+	return (count);
+}
+
 /**
  * reverse_elem - reverse number
  *@p: pointer
@@ -43,18 +58,20 @@ int *get_digits(int num)
 		count++;
 		size++;
 	}
-	p = malloc(count * sizeof(int));
+	p = malloc(size * sizeof(int));
 	if (!p)
 	{
 		free(p);
 		exit(1);
 	}
 	number = num;
+	count = 0;
 	if (num < 0)
 		number *= -1;
 	while (number)
 	{
 		p[count] = number % 10;
+		printf("p[%d]: %d\n", count, p[count]);
 		number /= 10;
 		count++;
 	}
@@ -75,13 +92,14 @@ unsigned int print_integer(va_list arg)
 	char c = 0;
 	unsigned int bytes = 0;
 	int *digits = get_digits(number);
+	unsigned int size = get_number_of_digits(number);
 
 	if (number < 0)
 	{
 		c = 45;
 		bytes += write(1, &c, 1);
 	}
-	while (digits[i])
+	while (i < size)
 	{
 		c = digits[i] + '0';
 		bytes += write(1, &c, 1);
