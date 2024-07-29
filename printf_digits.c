@@ -50,8 +50,7 @@ int *get_digits(int num)
 	int number = num, count = 0;
 	unsigned int size = 0;
 
-	if (num < 0)
-		number *= -1;
+	
 	while (number)
 	{
 		number /= 10;
@@ -66,11 +65,12 @@ int *get_digits(int num)
 	}
 	number = num;
 	count = 0;
-	if (num < 0)
-		number *= -1;
 	while (number)
 	{
-		p[count] = number % 10;
+		if(number % 10 < 0)
+			p[count] = (number % 10) * -1;
+		else
+			p[count] = number % 10;
 		number /= 10;
 		count++;
 	}
