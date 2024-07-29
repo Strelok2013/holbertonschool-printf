@@ -88,11 +88,11 @@ int *get_digits(int num)
 
 unsigned int print_integer(va_list arg)
 {
-	int number = va_arg(arg, int), i = 0;
+	int number = va_arg(arg, int);
 	char c = 0;
 	unsigned int bytes = 0;
 	int *digits = get_digits(number);
-	unsigned int size = get_number_of_digits(number);
+	unsigned int size = get_number_of_digits(number), i = 0;
 
 	if (number < 0)
 	{
