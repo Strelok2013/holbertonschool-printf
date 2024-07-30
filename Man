@@ -1,14 +1,14 @@
-Custom printf manual page
+**Custom printf manual page
 NAME
 _printf
 
 LIBRARY
-Standard C library
+**Standard C library
 
 SYNOPSIS
-int _printf (const char *format, …)
+**int _printf (const char *format, …)
 
-DESCRIPTION
+**DESCRIPTION
 The function of the _printf()  is to produce character and write it to the output stream stdout. It is a custom implementation of the standard C function and supports format specifiers like %s, %c, %d, %i and %%.
 The format string is a character of alphanumeric characters or symbols which are copied to the output stream unchanged unless met by a special character that helps in conversion specification that fetches subsequent arguments to be displayed on the stdout.
 Conversion specifiers are characters that define the type of conversion that is taking place. Using the custom _printf() function, we can use the following custom specifiers:
