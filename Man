@@ -1,4 +1,4 @@
-**Custom printf manual page
+**Custom printf manual page**
 NAME
 _printf
 
